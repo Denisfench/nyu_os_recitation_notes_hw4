@@ -186,6 +186,12 @@ static void fill_rtcdate(struct rtcdate *r) {
 }
 
 // qemu seems to use 24-hour GWT and the values are BCD encoded
+// usage:
+//struct rtcdate new_timestamp;
+//print(new_timestamp->second) -> 0;
+//cmostime(new_timestamp);
+//print(new_timestamp->second) -> 55;
+
 void cmostime(struct rtcdate *r) {
   struct rtcdate t1, t2;
   int sb, bcd;

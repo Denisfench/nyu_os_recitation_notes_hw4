@@ -218,11 +218,14 @@ void rsect(unsigned int sec, void* buf) {
   }
 }
 
+// allocates a new inode
 unsigned int ialloc(unsigned short type) {
   unsigned int inum = freeinode++;
   struct dinode din;
 
   bzero(&din, sizeof(din));
+
+  // initializing dinode structure fields
   din.type = xshort(type);
   din.nlink = xshort(1);
   din.size = xint(0);

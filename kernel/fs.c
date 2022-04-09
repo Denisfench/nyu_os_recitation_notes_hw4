@@ -9,6 +9,9 @@
 // routines.  The (higher-level) system call implementations
 // are in sysfile.c.
 
+// TODO: find pieces of code that are copying data from inode and make sure that the \
+//  newly added datetime field gets copied as well
+
 #include "kernel/types.h"
 #include "kernel/defs.h"
 #include "kernel/param.h"

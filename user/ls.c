@@ -20,6 +20,8 @@ char *fmtname(char *path) {
   return buf;
 }
 
+
+// HINT: ls can be ran either on a file or directory
 void ls(char *path) {
   char buf[512], *p;
   int fd;
@@ -38,10 +40,17 @@ void ls(char *path) {
   }
 
   switch (st.type) {
+    // the data type is a file
+    // didn't we want to display more data about the file?
+    // how can we access that data?
+    // I'm wondering what's that st thing is?
   case T_FILE:
     printf(1, "%s %d %d %d\n", fmtname(path), st.type, st.ino, st.size);
     break;
 
+    // we are dealing with a directory here
+    // do NOT just copy / paste the print statement from above
+    // (used to be a common bug in the past)
   case T_DIR:
     if (strlen(path) + 1 + DIRSIZ + 1 > sizeof buf) {
       printf(1, "ls: path too long\n");

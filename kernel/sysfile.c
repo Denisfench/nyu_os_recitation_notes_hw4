@@ -215,6 +215,10 @@ bad:
   return -1;
 }
 
+// create a new inode
+// TODO: perhaps it's a good place to record something in here?
+// how does this function work?
+// void cmostime(struct rtcdate *r) ?
 static struct inode *create(char *path, short type, short major, short minor) {
   uint off;
   struct inode *ip, *dp;
